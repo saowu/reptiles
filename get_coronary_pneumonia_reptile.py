@@ -61,8 +61,8 @@ def get_info(province, city, district):
 
 def format_data(info, result):
     """
-
-    Args:格式化疫情信息
+    格式化疫情信息
+    Args:
         info: 疫情信息
         result:结果集
 
