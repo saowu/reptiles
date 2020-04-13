@@ -94,5 +94,5 @@ if __name__ == '__main__':
                 {'min': 10000, "label": ">10000人", "color": "#8B0000"}
             ])
     )
-    _map.add("中国现存确诊数据", data_list, maptype="china", is_map_symbol_show=False)
+    _map.add("中国确诊数据", data_list, maptype="china", is_map_symbol_show=False)
     _map.render(path="nCoV_map.html", template_name='nCoV.html')
