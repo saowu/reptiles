@@ -8,9 +8,9 @@ __author__ = 'saowu'
 import json
 
 import requests
-import pypinyin
 from bs4 import BeautifulSoup
-from pyecharts import Map
+from pyecharts.charts import Map
+from pyecharts import options as opts
 
 province2hanzi = {
     'Anhui': '安徽',
@@ -76,9 +76,23 @@ if __name__ == '__main__':
     _data_json = get_info()
     get_taiwan(data_dict)
     format_data(_data_json, data_dict)
-    provices = list(data_dict.keys())
+    provinces = list(data_dict.keys())
     values = list(data_dict.values())
-    map = Map("中国地区", '冠状病毒确诊病例', width=800, height=600)
-    map.add("确诊病例", provices, values, visual_range=[0, 2000], maptype='china', is_visualmap=True,
-            visual_text_color='#000')
-    map.render(path="china_map.html")
+    data_list = [[provinces[i], values[i]] for i in range(len(provinces))]
+    _map = Map()
+    _map.set_global_opts(
+        title_opts=opts.TitleOpts(title="中国nCoV肺炎疫情确诊图", pos_left="left"),
+        visualmap_opts=opts.VisualMapOpts(
+            is_piecewise=True,
+            pieces=[
+                {"max": 0, "label": "0人", "color": "#FFFFFF"},
+                {"min": 1, "max": 9, "label": "1-10人", "color": "#FFEBCD"},
+                {"min": 10, "max": 99, "label": "10-99人", "color": "#FFA07A"},
+                {"min": 100, "max": 499, "label": "100-499人", "color": "#EE5C42"},
+                {"min": 500, "max": 999, "label": "500-999人", "color": "#CD3333"},
+                {"min": 1000, "max": 10000, "label": "1000-10000人", "color": "#A52A2A"},
+                {'min': 10000, "label": ">10000人", "color": "#8B0000"}
+            ])
+    )
+    _map.add("中国现存确诊数据", data_list, maptype="china", is_map_symbol_show=False)
+    _map.render(path="china_map.html", template_name='sim_xinguan.html')
