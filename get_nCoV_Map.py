@@ -95,4 +95,4 @@ if __name__ == '__main__':
             ])
     )
     _map.add("中国现存确诊数据", data_list, maptype="china", is_map_symbol_show=False)
-    _map.render(path="china_map.html", template_name='sim_xinguan.html')
+    _map.render(path="nCoV_map.html", template_name='nCoV.html')
