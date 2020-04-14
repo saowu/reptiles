@@ -79,7 +79,7 @@ if __name__ == '__main__':
     provinces = list(data_dict.keys())
     values = list(data_dict.values())
     data_list = [[provinces[i], values[i]] for i in range(len(provinces))]
-    _map = Map()
+    _map = Map(init_opts=opts.InitOpts(width="752px"))
     _map.set_global_opts(
         title_opts=opts.TitleOpts(title="中国nCoV肺炎疫情确诊图", pos_left="left"),
         visualmap_opts=opts.VisualMapOpts(
@@ -96,3 +96,4 @@ if __name__ == '__main__':
     )
     _map.add("中国累计确诊数据", data_list, maptype="china", is_map_symbol_show=False)
     _map.render(path="nCoV_map.html", template_name='nCoV.html')
+    print("中国nCoV肺炎疫情确诊图更新成功")
