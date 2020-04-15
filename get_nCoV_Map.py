@@ -52,6 +52,10 @@ data_dict = {}
 
 
 def get_info():
+    """
+    获取大陆json数据
+    :return: json
+    """
     url_community = 'https://coronavirus-tracker-api.herokuapp.com/v2/locations?country_code=CN'
     r_community = requests.get(url_community)
     data_community = BeautifulSoup(r_community.text, 'html.parser')
@@ -60,6 +64,11 @@ def get_info():
 
 
 def get_taiwan(result):
+    """
+    获取台湾json数据并格式化
+    :param result: 结果集
+    :return:
+    """
     url_community = 'https://coronavirus-tracker-api.herokuapp.com/v2/locations?country_code=TW'
     r_community = requests.get(url_community)
     data_community = BeautifulSoup(r_community.text, 'html.parser')
@@ -68,21 +77,30 @@ def get_taiwan(result):
 
 
 def format_data(json_obj, result):
+    """
+    格式化json数据
+    :param json_obj:
+    :param result:
+    :return:
+    """
     for _province in json_obj['locations']:
         result[province2hanzi[_province['province']]] = _province['latest']['confirmed']
 
 
 if __name__ == '__main__':
-    _timestr = str(datetime.datetime.now().strftime('截止：%Y-%m-%d %H:%M:%S'))
+    # 当前时间戳
+    _time_str = str(datetime.datetime.now().strftime('截止：%Y-%m-%d %H:%M:%S'))
     _data_json = get_info()
     get_taiwan(data_dict)
     format_data(_data_json, data_dict)
+
     provinces = list(data_dict.keys())
     values = list(data_dict.values())
+
     data_list = [[provinces[i], values[i]] for i in range(len(provinces))]
     _map = Map(init_opts=opts.InitOpts(width="752px", ))
     _map.set_global_opts(
-        title_opts=opts.TitleOpts(title="中国nCoV肺炎疫情确诊图", pos_left="left", subtitle=_timestr),
+        title_opts=opts.TitleOpts(title="中国nCoV肺炎疫情确诊图", pos_left="left", subtitle=_time_str),
         visualmap_opts=opts.VisualMapOpts(
             is_piecewise=True,
             pieces=[
@@ -97,4 +115,4 @@ if __name__ == '__main__':
     )
     _map.add("中国累计确诊数据", data_list, maptype="china", is_map_symbol_show=False)
     _map.render(path="nCoV_map.html", template_name='nCoV.html')
-    print(_timestr, "中国nCoV肺炎疫情确诊图更新成功")
+    print(_time_str, "中国nCoV肺炎疫情确诊图更新成功")
