@@ -141,4 +141,4 @@ if __name__ == '__main__':
     for day in china_confirmed_history.keys():
         timeline.add(get_date_overlap_chart(day=day), time_point=day)
     timeline.add_schema(is_auto_play=True, play_interval=1000)
-    timeline.render("nCoV_timeline.html")
+    timeline.render("nCoV_timeline.html", template_name="nCoV2.html")
