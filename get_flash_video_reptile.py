@@ -19,7 +19,7 @@ logging.basicConfig(level=logging.WARNING, filename='.get_flash_video.log', form
 user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.116 Safari/537.36"
 headers = {'User-Agent': user_agent}
 # 下载目录
-out_filepath = '/Users/saowu/Downloads/other/'
+out_filepath = '/Users/saowu/Downloads/other1/'
 # 切片文件类型
 file_type = '.ts'
 
@@ -33,7 +33,7 @@ def get_url(index):
     Returns:下载路径
 
     '''
-    return "https://12345.xyz/av/621/SSPD-147%d.ts" % index
+    return "http://hls.cntv.myalicdn.com/asp/hls/450/0303000a/3/default/8bfe1a3f8dc54d13b99887d8c07e575d/%d.ts" % index
 
 
 def download_ts(index):
@@ -110,7 +110,7 @@ if __name__ == '__main__':
     # 定义进程池
     p = Pool(4)
     # 视频切片数量(需要给定)
-    for i in range(0, 690):
+    for i in range(0, 120):
         # 异步调用
         p.apply_async(work, args=(i,))
     print('Waiting for all subprocesses done...')

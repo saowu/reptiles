@@ -22,7 +22,7 @@ cookie = "_qda_uuid=7c45e907-c770-d953-aca1-2517e23d5765; e1=%7B%22pid%22%3A%22q
 headers = {'User-Agent': user_agent, "Cookie": cookie}
 
 ip_adress_path = 'https:'
-path = '//read.qidian.com/chapter/fDudqh4hax0mPxgcqNL9uQ2/cDWg06ebWfDwrjbX3WA1AA2'
+path = '//read.qidian.com/chapter/f3c3YK2k5Ypxo3Pbs2jtrw2/zW2ue59I_x5Ms5iq0oQwLQ2'
 
 
 def set_url():
