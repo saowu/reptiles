@@ -114,5 +114,5 @@ if __name__ == '__main__':
             ])
     )
     _map.add("中国累计确诊数据", data_list, maptype="china", is_map_symbol_show=False)
-    _map.render(path="nCoV_map.html", template_name='nCoV.html')
+    _map.render(path="nCoV_map.html", template_name='nCoV_saowu.html')
     print(_time_str, "中国nCoV肺炎疫情确诊图更新成功")
