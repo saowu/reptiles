@@ -98,7 +98,7 @@ if __name__ == '__main__':
     values = list(data_dict.values())
 
     data_list = [[provinces[i], values[i]] for i in range(len(provinces))]
-    _map = Map(init_opts=opts.InitOpts(width="752px", ))
+    _map = Map(init_opts=opts.InitOpts(width="801px", ))
     _map.set_global_opts(
         title_opts=opts.TitleOpts(title="中国nCoV肺炎疫情确诊图", pos_left="left", subtitle=_time_str),
         visualmap_opts=opts.VisualMapOpts(
