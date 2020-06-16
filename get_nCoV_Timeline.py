@@ -55,15 +55,15 @@ china_recovered_history = {}
 
 def get_confirmed_info(url_community, name):
     # 1.爬取api数据
-    r_community = requests.get(url_community)
-    with open(name, 'w')as _file:
-        _file.write(r_community.text)
-    data_community = BeautifulSoup(r_community.text, 'html.parser')
+    # r_community = requests.get(url_community)
+    # with open(name, 'w')as _file:
+    #     _file.write(r_community.text)
+    # data_community = BeautifulSoup(r_community.text, 'html.parser')
 
     # 2.先爬取到本地，再本地读取，加快速度调试
-    # with open(name, 'r')as _file:
-    #     r_community = _file.read()
-    # data_community = BeautifulSoup(r_community, 'html.parser')
+    with open(name, 'r')as _file:
+        r_community = _file.read()
+    data_community = BeautifulSoup(r_community, 'html.parser')
 
     jsonObj = json.loads(data_community.decode('utf-8'))
     return jsonObj
@@ -141,4 +141,4 @@ if __name__ == '__main__':
     for day in china_confirmed_history.keys():
         timeline.add(get_date_overlap_chart(day=day), time_point=day)
     timeline.add_schema(is_auto_play=True, play_interval=1000)
-    timeline.render("nCoV_timeline.html")
+    timeline.render("nCoV_timeline.html", template_name='nCoV_Time.html')
