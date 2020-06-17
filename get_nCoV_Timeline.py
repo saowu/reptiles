@@ -55,15 +55,15 @@ china_recovered_history = {}
 
 def get_confirmed_info(url_community, name):
     # 1.爬取api数据
-    # r_community = requests.get(url_community)
-    # with open(name, 'w')as _file:
-    #     _file.write(r_community.text)
-    # data_community = BeautifulSoup(r_community.text, 'html.parser')
+    r_community = requests.get(url_community)
+    with open(name, 'w')as _file:
+        _file.write(r_community.text)
+    data_community = BeautifulSoup(r_community.text, 'html.parser')
 
-    # 2.先爬取到本地，再本地读取，加快速度调试
-    with open(name, 'r')as _file:
-        r_community = _file.read()
-    data_community = BeautifulSoup(r_community, 'html.parser')
+    # # 2.先爬取到本地，再本地读取，加快速度调试
+    # with open(name, 'r')as _file:
+    #     r_community = _file.read()
+    # data_community = BeautifulSoup(r_community, 'html.parser')
 
     jsonObj = json.loads(data_community.decode('utf-8'))
     return jsonObj
