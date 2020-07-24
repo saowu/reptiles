@@ -6,6 +6,8 @@
 __author__ = 'saowu'
 
 import json
+import datetime
+
 import requests
 from bs4 import BeautifulSoup
 from pyecharts.charts import Timeline, Bar
@@ -130,6 +132,7 @@ def get_date_overlap_chart(day: str) -> Bar:
 
 
 if __name__ == '__main__':
+    _time_str = str(datetime.datetime.now().strftime('截止：%Y-%m-%d %H:%M:%S'))
     confirmed_info = get_confirmed_info('https://coronavirus-tracker-api.herokuapp.com/confirmed', 'confirmed_info')
     deaths_info = get_confirmed_info('https://coronavirus-tracker-api.herokuapp.com/deaths', 'deaths_info')
     recovered_info = get_confirmed_info('https://coronavirus-tracker-api.herokuapp.com/recovered', 'recovered_info')
@@ -142,3 +145,4 @@ if __name__ == '__main__':
         timeline.add(get_date_overlap_chart(day=day), time_point=day)
     timeline.add_schema(is_auto_play=True, play_interval=1000)
     timeline.render("nCoV_timeline.html", template_name='nCoV_timeline.html')
+    print(_time_str, "中国nCoV肺炎疫情确诊图更新成功")
