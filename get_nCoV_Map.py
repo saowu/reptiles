@@ -7,7 +7,6 @@ __author__ = 'saowu'
 
 import datetime
 import json
-import requests
 from bs4 import BeautifulSoup
 from pyecharts.charts import Map
 from pyecharts import options as opts
@@ -104,7 +103,7 @@ if __name__ == '__main__':
 
     _map = Map(init_opts=opts.InitOpts(width="801px", ))
     _map.set_global_opts(
-        title_opts=opts.TitleOpts(title="中国nCoV肺炎疫情现存确诊图", pos_left="left", subtitle=_time_str),
+        title_opts=opts.TitleOpts(title="中国nCoV肺炎疫情现有确诊图", pos_left="left", subtitle=_time_str),
         visualmap_opts=opts.VisualMapOpts(
             is_piecewise=True,
             pieces=[
@@ -117,6 +116,6 @@ if __name__ == '__main__':
                 {'min': 10000, "label": ">10000人", "color": "#8B0000"}
             ])
     )
-    _map.add("中国现存确诊数据", data_list, maptype="china", is_map_symbol_show=False)
+    _map.add("中国现有确诊数据", data_list, maptype="china", is_map_symbol_show=False)
     _map.render(path="nCoV_map.html", template_name='nCoV_map.html')
-    print(_time_str, "中国nCoV肺炎疫情现存确诊图更新成功")
+    print(_time_str, "中国nCoV肺炎疫情现有确诊图更新成功")
