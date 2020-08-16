@@ -48,7 +48,54 @@
 
 
             <div id="48357249f54b4813bc55357f08eb6f7e" class="chart-container" style="width:801px; height:500px;"></div>
-    <script>
+
+            <div class="markdown mb-8" style="padding-top: 20px">
+                <blockquote>
+                    <p>
+                        美，可以在金碧辉煌的宫殿中，也可以在炸毁的大桥旁，可以在芳香扑鼻的鲜花上，也可以在风中跳动的烛光中；美，可以在超凡脱俗的维纳斯雕像上，也可以在那平凡少女的笑魇里。生与死处在两个世界，但美却可在生死边缘上闪闪发亮，这就是生命的力量——生命的至美。
+                        ——《美的断想》
+                    </p>
+                </blockquote>
+            </div>
+            <!-- Share to Twitter, Weibo, Telegram -->
+            <div class="flex items-center">
+                <div class="mr-4 flex items-center">
+                    <i class="ri-share-forward-line text-gray-500"></i>
+                </div>
+                <div class="px-4 cursor-pointer text-blue-500 hover:bg-blue-100 dark:hover:bg-gray-600 inline-flex"
+                     @click="shareToTwitter">
+                    <i class="ri-twitter-line"></i>
+                </div>
+                <div class="px-4 cursor-pointer text-red-500 hover:bg-red-100 dark:hover:bg-gray-600 inline-flex"
+                     @click="shareToWeibo">
+                    <i class="ri-weibo-line"></i>
+                </div>
+                <div class="px-4 cursor-pointer text-indigo-500 hover:bg-indigo-100 dark:hover:bg-gray-600 inline-flex"
+                     @click="shareToTelegram">
+                    <i class="ri-telegram-line"></i>
+                </div>
+            </div>
+        </div>
+
+
+        <footer class="py-12 text-center px-4 md:px-0">
+            Copyright 2020 <a target="_blank" href="https://saowu.top/">saowu</a>. All Right Reserved<br>
+            Powered by <a target="_blank" href="https://github.com/getgridea/gridea">Gridea</a>
+        </footer>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+<script src="https://saowu.top/blog/media/scripts/main.js"></script>
+
+<!-- Code Highlight -->
+
+<script src="https://saowu.top/blog/media/prism.js"></script>
+<script>
+    Prism.highlightAll()
+</script>
+<script>
         var chart_48357249f54b4813bc55357f08eb6f7e = echarts.init(
             document.getElementById('48357249f54b4813bc55357f08eb6f7e'), 'white', {renderer: 'canvas'});
         var option_48357249f54b4813bc55357f08eb6f7e = {
@@ -342,53 +389,6 @@
 };
         chart_48357249f54b4813bc55357f08eb6f7e.setOption(option_48357249f54b4813bc55357f08eb6f7e);
     </script>
-            <div class="markdown mb-8" style="padding-top: 20px">
-                <blockquote>
-                    <p>
-                        美，可以在金碧辉煌的宫殿中，也可以在炸毁的大桥旁，可以在芳香扑鼻的鲜花上，也可以在风中跳动的烛光中；美，可以在超凡脱俗的维纳斯雕像上，也可以在那平凡少女的笑魇里。生与死处在两个世界，但美却可在生死边缘上闪闪发亮，这就是生命的力量——生命的至美。
-                        ——《美的断想》
-                    </p>
-                </blockquote>
-            </div>
-            <!-- Share to Twitter, Weibo, Telegram -->
-            <div class="flex items-center">
-                <div class="mr-4 flex items-center">
-                    <i class="ri-share-forward-line text-gray-500"></i>
-                </div>
-                <div class="px-4 cursor-pointer text-blue-500 hover:bg-blue-100 dark:hover:bg-gray-600 inline-flex"
-                     @click="shareToTwitter">
-                    <i class="ri-twitter-line"></i>
-                </div>
-                <div class="px-4 cursor-pointer text-red-500 hover:bg-red-100 dark:hover:bg-gray-600 inline-flex"
-                     @click="shareToWeibo">
-                    <i class="ri-weibo-line"></i>
-                </div>
-                <div class="px-4 cursor-pointer text-indigo-500 hover:bg-indigo-100 dark:hover:bg-gray-600 inline-flex"
-                     @click="shareToTelegram">
-                    <i class="ri-telegram-line"></i>
-                </div>
-            </div>
-        </div>
-
-
-        <footer class="py-12 text-center px-4 md:px-0">
-            Copyright 2020 <a target="_blank" href="https://saowu.top/">saowu</a>. All Right Reserved<br>
-            Powered by <a target="_blank" href="https://github.com/getgridea/gridea">Gridea</a>
-        </footer>
-    </div>
-
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
-<script src="https://saowu.top/blog/media/scripts/main.js"></script>
-
-<!-- Code Highlight -->
-
-<script src="https://saowu.top/blog/media/prism.js"></script>
-<script>
-    Prism.highlightAll()
-</script>
-
 <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
 <script>
